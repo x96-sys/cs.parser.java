@@ -95,6 +95,9 @@ $(eval $(call deps,tools,jacoco_cli,JACOCO_CLI))
 $(eval $(call deps,tools,jacoco_agent,JACOCO_AGENT))
 $(eval $(call deps,tools,junit,JUNIT))
 
+$(TOOL_DIR) $(LIB_DIR):
+	@mkdir -p $@
+
 clean:
 	@rm -rf $(BUILD_DIR) $(TOOL_DIR) $(LIB_DIR)
 	@rm -rf *.jar
