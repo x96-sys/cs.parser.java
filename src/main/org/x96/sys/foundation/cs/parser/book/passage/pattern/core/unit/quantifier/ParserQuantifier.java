@@ -4,10 +4,10 @@ import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.unit.quantifier.O
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.unit.quantifier.Quantifier;
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.unit.quantifier.ZeroOrMore;
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.unit.quantifier.ZeroOrOne;
+import org.x96.sys.foundation.cs.lexer.token.Token;
 import org.x96.sys.foundation.cs.parser.Parser;
 import org.x96.sys.foundation.cs.parser.Parsing;
 import org.x96.sys.foundation.cs.parser.Tape;
-import org.x96.sys.foundation.cs.lexer.token.Token;
 
 import java.util.Optional;
 

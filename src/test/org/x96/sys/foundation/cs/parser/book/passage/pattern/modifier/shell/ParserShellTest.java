@@ -4,12 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.modifier.Shell;
-import org.x96.sys.foundation.cs.parser.Tape;
 import org.x96.sys.foundation.cs.lexer.token.Kind;
 import org.x96.sys.foundation.cs.lexer.token.Token;
 import org.x96.sys.foundation.cs.lexer.token.architecture.Lexeme;
 import org.x96.sys.foundation.cs.lexer.token.architecture.span.Position;
 import org.x96.sys.foundation.cs.lexer.token.architecture.span.Span;
+import org.x96.sys.foundation.cs.parser.Tape;
 
 class ParserShellTest {
     @Test

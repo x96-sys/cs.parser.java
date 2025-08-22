@@ -23,21 +23,34 @@ public class Tape {
 
     public boolean overKindIs(String overKind) {
         if (current().overKind != null) {
-            return current().overKind.equals(overKind);
+            return y(overKind) || x(overKind);
         } else {
-            return current().kind().toString().equals(overKind);
+            return x(overKind);
         }
     }
 
     public Token consume(String overKind) {
         if (!overKindIs(overKind)) {
             String explain =
-                    String.format("encontrado [%s] ao consumir [%s]", current().overKind, overKind);
+                    String.format(
+                            "encontrado [%s] ao consumir [%s]",
+                            current().overKind != null
+                                    ? current().overKind
+                                    : current().kind().toString(),
+                            overKind);
             throw new RuntimeException(explain);
         } else {
             Token c = current();
             this.pointer += 1;
             return c;
         }
+    }
+
+    private boolean x(String overKind) {
+        return current().kind().toString().toLowerCase().equals(overKind.toLowerCase());
+    }
+
+    private boolean y(String overKind) {
+        return current().overKind.toLowerCase().equals(overKind.toLowerCase());
     }
 }

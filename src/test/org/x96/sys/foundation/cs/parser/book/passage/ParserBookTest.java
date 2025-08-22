@@ -7,13 +7,13 @@ import org.x96.sys.foundation.cs.ast.book.Book;
 import org.x96.sys.foundation.cs.ast.book.passage.Passage;
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.Casing;
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.Lineage;
-import org.x96.sys.foundation.cs.parser.Tape;
-import org.x96.sys.foundation.cs.parser.book.ParserBook;
 import org.x96.sys.foundation.cs.lexer.token.Kind;
 import org.x96.sys.foundation.cs.lexer.token.Token;
 import org.x96.sys.foundation.cs.lexer.token.architecture.Lexeme;
 import org.x96.sys.foundation.cs.lexer.token.architecture.span.Position;
 import org.x96.sys.foundation.cs.lexer.token.architecture.span.Span;
+import org.x96.sys.foundation.cs.parser.Tape;
+import org.x96.sys.foundation.cs.parser.book.ParserBook;
 
 class ParserBookTest {
     @Test
@@ -23,7 +23,7 @@ class ParserBookTest {
                         Kind.STX,
                         new Lexeme((byte) 0x2),
                         new Span(new Position(0, 0, 0), new Position(1, 1, 1)));
-        t0.overKind("open_book");
+        // t0.overKind("open_book");
 
         Token t1 =
                 new Token(
@@ -65,28 +65,28 @@ class ParserBookTest {
                         Kind.DIGIT_ZERO,
                         new Lexeme((byte) 0x30),
                         new Span(new Position(2, 5, 6), new Position(2, 6, 7)));
-        t6.overKind("hex");
+        t6.overKind("hexadecimal");
 
         Token t7 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_X,
                         new Lexeme((byte) 0x78),
                         new Span(new Position(2, 6, 7), new Position(2, 7, 8)));
-        t7.overKind("hex");
+        t7.overKind("hexadecimal");
 
         Token t8 =
                 new Token(
                         Kind.DIGIT_SIX,
                         new Lexeme((byte) 0x36),
                         new Span(new Position(2, 7, 8), new Position(2, 8, 9)));
-        t8.overKind("hex");
+        t8.overKind("hexadecimal");
 
         Token t9 =
                 new Token(
                         Kind.DIGIT_THREE,
                         new Lexeme((byte) 0x33),
                         new Span(new Position(2, 8, 9), new Position(2, 9, 10)));
-        t9.overKind("hex");
+        t9.overKind("hexadecimal");
 
         Token t10 =
                 new Token(
@@ -142,35 +142,34 @@ class ParserBookTest {
                         Kind.DIGIT_ZERO,
                         new Lexeme((byte) 0x30),
                         new Span(new Position(3, 6, 17), new Position(3, 7, 18)));
-        t17.overKind("hex");
+        t17.overKind("hexadecimal");
 
         Token t18 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_X,
                         new Lexeme((byte) 0x78),
                         new Span(new Position(3, 7, 18), new Position(3, 8, 19)));
-        t18.overKind("hex");
+        t18.overKind("hexadecimal");
 
         Token t19 =
                 new Token(
                         Kind.DIGIT_SEVEN,
                         new Lexeme((byte) 0x37),
                         new Span(new Position(3, 8, 19), new Position(3, 9, 20)));
-        t19.overKind("hex");
+        t19.overKind("hexadecimal");
 
         Token t20 =
                 new Token(
                         Kind.DIGIT_THREE,
                         new Lexeme((byte) 0x33),
                         new Span(new Position(3, 9, 20), new Position(3, 10, 21)));
-        t20.overKind("hex");
+        t20.overKind("hexadecimal");
 
         Token t21 =
                 new Token(
                         Kind.RIGHT_CURLY_BRACKET,
                         new Lexeme((byte) 0x7D),
                         new Span(new Position(3, 10, 21), new Position(3, 11, 22)));
-        t21.overKind("RIGHT_CURLY_BRACKET");
 
         Token t22 =
                 new Token(
@@ -184,7 +183,6 @@ class ParserBookTest {
                         Kind.ETX,
                         new Lexeme((byte) 0x3),
                         new Span(new Position(4, 1, 23), new Position(4, 2, 24)));
-        t23.overKind("close_book");
 
         Token[] t =
                 new Token[] {

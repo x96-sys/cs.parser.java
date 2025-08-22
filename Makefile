@@ -8,6 +8,10 @@ SRC_TEST      = src/test
 TOOL_DIR      = tools
 LIB_DIR       = lib
 
+GJF_VERSION = 1.28.0
+GJF_JAR     = $(TOOL_DIR)/google-java-format.jar
+GJF_URL     = https://maven.org/maven2/com/google/googlejavaformat/google-java-format/$(GJF_VERSION)/google-java-format-$(GJF_VERSION)-all-deps.jar
+
 CS_KIND_VERSION = 0.1.3
 CS_KIND_JAR     = $(LIB_DIR)/org.x96.sys.foundation.cs.lexer.token.kind.jar
 CS_KIND_URL     = https://github.com/x96-sys/cs.lexer.token.kind.java/releases/download/0.1.3/org.x96.sys.foundation.cs.lexer.token.kind.jar
@@ -46,7 +50,7 @@ build: lib/ast lib/token lib/kind
 	@javac -d $(MAIN_BUILD) -cp $(CP) $(JAVA_SOURCES)
 	@echo "✅ source compiled successfully!"
 
-build-test: tools/junit lib/ast lib/token lib/kind
+build-test: tools/junit build
 	@javac -d $(TEST_BUILD) -cp $(JUNIT_JAR):$(MAIN_BUILD):$(CP) $(JAVA_TEST_SOURCES)
 	@echo "✅ tests compiled successfully!"
 
@@ -75,25 +79,32 @@ coverage: coverage-run coverage-report
 	@echo "✅ Relatório de cobertura disponível em: build/coverage/index.html"
 	@echo "🌐 Abrir com: open build/coverage/index.html"
 
+format: tools/gjf
+	@find src -name "*.java" -print0 | xargs -0 java -jar $(GJF_JAR) --aosp --replace
+	@echo "[🤩] Código formatado com sucesso!"
+
 define deps
 $1/$2: $1
 	@if [ ! -f "$$($3_JAR)" ]; then \
 		echo "[📦] [🚛] [$$($3_VERSION)] [$2]"; \
 		curl -sSL -o $$($3_JAR) $$($3_URL); \
 	else \
-		echo "[📦] [✅] [$$($3_VERSION)] [$2]"; \
+		echo "[📦] [📍] [$$($3_VERSION)] [$2]"; \
 	fi
 endef
+
+libs: lib/ast lib/token lib/kind
 
 $(eval $(call deps,lib,ast,CS_AST))
 $(eval $(call deps,lib,token,CS_TOKEN))
 $(eval $(call deps,lib,kind,CS_KIND))
 
-tools/jacoco: tools/jacoco_cli tools/jacoco_agent
+kit: tools/junit tools/jacoco_cli tools/jacoco_agent tools/gjf
 
 $(eval $(call deps,tools,jacoco_cli,JACOCO_CLI))
 $(eval $(call deps,tools,jacoco_agent,JACOCO_AGENT))
 $(eval $(call deps,tools,junit,JUNIT))
+$(eval $(call deps,tools,gjf,GJF))
 
 $(TOOL_DIR) $(LIB_DIR):
 	@mkdir -p $@

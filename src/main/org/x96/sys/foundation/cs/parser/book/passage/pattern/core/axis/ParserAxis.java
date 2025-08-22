@@ -18,13 +18,13 @@ public class ParserAxis extends Parser implements Parsing<Axis> {
     @Override
     public Axis parse() {
         if (hasNext("q")) return new ParserWord(tape).parse();
-        if (hasNext("hex")) return new ParserRangeHex(tape).parse();
+        if (hasNext("hexadecimal")) return new ParserRangeHex(tape).parse();
         if (hasNext("glyph")) return new ParserUnit(tape).parse();
         if (hasNext("inhibitor")) return new ParserUnit(tape).parse();
         if (hasNext("LEFT_PARENTHESIS")) return new ParserChoices(tape).parse();
         if (hasNext("LEFT_SQUARE_BRACKET")) return new ParserSegment(tape).parse();
 
-        System.out.println(kind());
+        System.out.println(tape.current().toString());
         throw new RuntimeException();
     }
 }

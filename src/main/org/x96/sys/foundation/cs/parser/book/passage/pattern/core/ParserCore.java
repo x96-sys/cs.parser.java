@@ -17,7 +17,7 @@ public class ParserCore extends Parser implements Parsing<Core> {
 
     @Override
     public Core parse() {
-        if (hasNext("hex")) return new ParserHexadecimal(tape).parse();
+        if (hasNext("hexadecimal")) return new ParserHexadecimal(tape).parse();
         if (hasNext("q")) return new ParserWord(tape).parse();
         if (hasNext("glyph")) return new ParserUnit(tape).parse();
         if (hasNext("inhibitor")) return new ParserUnit(tape).parse();
@@ -25,6 +25,6 @@ public class ParserCore extends Parser implements Parsing<Core> {
         if (hasNext("LEFT_SQUARE_BRACKET")) return new ParserSegment(tape).parse();
 
         System.out.println(kind());
-        throw new RuntimeException("Core ainda não suporta " + kind());
+        throw new RuntimeException("Core ainda não suporta " + this.tape.current().toString());
     }
 }

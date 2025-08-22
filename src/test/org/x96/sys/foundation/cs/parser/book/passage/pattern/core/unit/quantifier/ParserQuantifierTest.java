@@ -7,12 +7,12 @@ import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.unit.quantifier.O
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.unit.quantifier.Quantifier;
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.unit.quantifier.ZeroOrMore;
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.unit.quantifier.ZeroOrOne;
-import org.x96.sys.foundation.cs.parser.Tape;
 import org.x96.sys.foundation.cs.lexer.token.Kind;
 import org.x96.sys.foundation.cs.lexer.token.Token;
 import org.x96.sys.foundation.cs.lexer.token.architecture.Lexeme;
 import org.x96.sys.foundation.cs.lexer.token.architecture.span.Position;
 import org.x96.sys.foundation.cs.lexer.token.architecture.span.Span;
+import org.x96.sys.foundation.cs.parser.Tape;
 
 import java.util.Optional;
 

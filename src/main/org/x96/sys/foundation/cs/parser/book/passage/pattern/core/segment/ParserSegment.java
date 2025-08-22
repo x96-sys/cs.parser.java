@@ -18,7 +18,7 @@ public class ParserSegment extends Parser implements Parsing<Segment> {
 
     private boolean follow() {
         if (hasNext("word")) return true;
-        if (hasNext("hex")) return true;
+        if (hasNext("hexadecimal")) return true;
         if (hasNext("glyph")) return true;
         if (hasNext("LEFT_SQUARE_BRACKET")) return true;
         if (hasNext("LEFT_PARENTHESIS")) return true;

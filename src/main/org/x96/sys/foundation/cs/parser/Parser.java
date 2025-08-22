@@ -1,9 +1,9 @@
 package org.x96.sys.foundation.cs.parser;
 
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.Core;
-import org.x96.sys.foundation.cs.parser.book.passage.pattern.core.ParserCore;
 import org.x96.sys.foundation.cs.lexer.token.Kind;
 import org.x96.sys.foundation.cs.lexer.token.Token;
+import org.x96.sys.foundation.cs.parser.book.passage.pattern.core.ParserCore;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public abstract class Parser {
     }
 
     public void skipES() {
-        for (String s : new String[] {"empty_space", "SPACE", "doc"}) {
+        for (String s : new String[] {"empty_space", "SPACE", "doc", "LF"}) {
             if (hasNext(s)) {
                 consume(s);
                 skipES();
@@ -37,7 +37,7 @@ public abstract class Parser {
     }
 
     public boolean hasNextCore() {
-        if (hasNext("hex")) return true;
+        if (hasNext("hexadecimal")) return true;
         if (hasNext("q")) return true;
         if (hasNext("glyph")) return true;
         if (hasNext("inhibitor")) return true;

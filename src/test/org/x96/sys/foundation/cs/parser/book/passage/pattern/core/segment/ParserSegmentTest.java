@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.*;
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.unit.quantifier.OneOrMore;
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.unit.quantifier.ZeroOrMore;
-import org.x96.sys.foundation.cs.parser.Tape;
 import org.x96.sys.foundation.cs.lexer.token.Kind;
 import org.x96.sys.foundation.cs.lexer.token.Token;
 import org.x96.sys.foundation.cs.lexer.token.architecture.Lexeme;
 import org.x96.sys.foundation.cs.lexer.token.architecture.span.Position;
 import org.x96.sys.foundation.cs.lexer.token.architecture.span.Span;
+import org.x96.sys.foundation.cs.parser.Tape;
 
 class ParserSegmentTest {
     @Test
@@ -111,28 +111,28 @@ class ParserSegmentTest {
                         Kind.DIGIT_ZERO,
                         new Lexeme((byte) 0x30),
                         new Span(new Position(1, 13, 13), new Position(1, 14, 14)));
-        t13.overKind("hex");
+        t13.overKind("hexadecimal");
 
         Token t14 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_X,
                         new Lexeme((byte) 0x78),
                         new Span(new Position(1, 14, 14), new Position(1, 15, 15)));
-        t14.overKind("hex");
+        t14.overKind("hexadecimal");
 
         Token t15 =
                 new Token(
                         Kind.DIGIT_SIX,
                         new Lexeme((byte) 0x36),
                         new Span(new Position(1, 15, 15), new Position(1, 16, 16)));
-        t15.overKind("hex");
+        t15.overKind("hexadecimal");
 
         Token t16 =
                 new Token(
                         Kind.DIGIT_THREE,
                         new Lexeme((byte) 0x33),
                         new Span(new Position(1, 16, 16), new Position(1, 17, 17)));
-        t16.overKind("hex");
+        t16.overKind("hexadecimal");
 
         Token t17 =
                 new Token(
@@ -145,28 +145,28 @@ class ParserSegmentTest {
                         Kind.DIGIT_ZERO,
                         new Lexeme((byte) 0x30),
                         new Span(new Position(1, 18, 18), new Position(1, 19, 19)));
-        t18.overKind("hex");
+        t18.overKind("hexadecimal");
 
         Token t19 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_X,
                         new Lexeme((byte) 0x78),
                         new Span(new Position(1, 19, 19), new Position(1, 20, 20)));
-        t19.overKind("hex");
+        t19.overKind("hexadecimal");
 
         Token t20 =
                 new Token(
                         Kind.DIGIT_SEVEN,
                         new Lexeme((byte) 0x37),
                         new Span(new Position(1, 20, 20), new Position(1, 21, 21)));
-        t20.overKind("hex");
+        t20.overKind("hexadecimal");
 
         Token t21 =
                 new Token(
                         Kind.DIGIT_THREE,
                         new Lexeme((byte) 0x33),
                         new Span(new Position(1, 21, 21), new Position(1, 22, 22)));
-        t21.overKind("hex");
+        t21.overKind("hexadecimal");
 
         Token t22 =
                 new Token(
@@ -444,28 +444,28 @@ class ParserSegmentTest {
                         Kind.DIGIT_ZERO,
                         new Lexeme((byte) 0x30),
                         new Span(new Position(1, 10, 10), new Position(1, 11, 11)));
-        t10.overKind("hex");
+        t10.overKind("hexadecimal");
 
         Token t11 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_X,
                         new Lexeme((byte) 0x78),
                         new Span(new Position(1, 11, 11), new Position(1, 12, 12)));
-        t11.overKind("hex");
+        t11.overKind("hexadecimal");
 
         Token t12 =
                 new Token(
                         Kind.DIGIT_FOUR,
                         new Lexeme((byte) 0x34),
                         new Span(new Position(1, 12, 12), new Position(1, 13, 13)));
-        t12.overKind("hex");
+        t12.overKind("hexadecimal");
 
         Token t13 =
                 new Token(
                         Kind.DIGIT_ONE,
                         new Lexeme((byte) 0x31),
                         new Span(new Position(1, 13, 13), new Position(1, 14, 14)));
-        t13.overKind("hex");
+        t13.overKind("hexadecimal");
 
         Token t14 =
                 new Token(
@@ -479,28 +479,28 @@ class ParserSegmentTest {
                         Kind.DIGIT_ZERO,
                         new Lexeme((byte) 0x30),
                         new Span(new Position(1, 15, 15), new Position(1, 16, 16)));
-        t15.overKind("hex");
+        t15.overKind("hexadecimal");
 
         Token t16 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_X,
                         new Lexeme((byte) 0x78),
                         new Span(new Position(1, 16, 16), new Position(1, 17, 17)));
-        t16.overKind("hex");
+        t16.overKind("hexadecimal");
 
         Token t17 =
                 new Token(
                         Kind.DIGIT_FOUR,
                         new Lexeme((byte) 0x34),
                         new Span(new Position(1, 17, 17), new Position(1, 18, 18)));
-        t17.overKind("hex");
+        t17.overKind("hexadecimal");
 
         Token t18 =
                 new Token(
                         Kind.DIGIT_SIX,
                         new Lexeme((byte) 0x36),
                         new Span(new Position(1, 18, 18), new Position(1, 19, 19)));
-        t18.overKind("hex");
+        t18.overKind("hexadecimal");
 
         Token t19 =
                 new Token(
@@ -605,28 +605,28 @@ class ParserSegmentTest {
                         Kind.DIGIT_ZERO,
                         new Lexeme((byte) 0x30),
                         new Span(new Position(1, 33, 33), new Position(1, 34, 34)));
-        t33.overKind("hex");
+        t33.overKind("hexadecimal");
 
         Token t34 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_X,
                         new Lexeme((byte) 0x78),
                         new Span(new Position(1, 34, 34), new Position(1, 35, 35)));
-        t34.overKind("hex");
+        t34.overKind("hexadecimal");
 
         Token t35 =
                 new Token(
                         Kind.DIGIT_SIX,
                         new Lexeme((byte) 0x36),
                         new Span(new Position(1, 35, 35), new Position(1, 36, 36)));
-        t35.overKind("hex");
+        t35.overKind("hexadecimal");
 
         Token t36 =
                 new Token(
                         Kind.DIGIT_ONE,
                         new Lexeme((byte) 0x31),
                         new Span(new Position(1, 36, 36), new Position(1, 37, 37)));
-        t36.overKind("hex");
+        t36.overKind("hexadecimal");
 
         Token t37 =
                 new Token(
@@ -640,28 +640,28 @@ class ParserSegmentTest {
                         Kind.DIGIT_ZERO,
                         new Lexeme((byte) 0x30),
                         new Span(new Position(1, 38, 38), new Position(1, 39, 39)));
-        t38.overKind("hex");
+        t38.overKind("hexadecimal");
 
         Token t39 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_X,
                         new Lexeme((byte) 0x78),
                         new Span(new Position(1, 39, 39), new Position(1, 40, 40)));
-        t39.overKind("hex");
+        t39.overKind("hexadecimal");
 
         Token t40 =
                 new Token(
                         Kind.DIGIT_SIX,
                         new Lexeme((byte) 0x36),
                         new Span(new Position(1, 40, 40), new Position(1, 41, 41)));
-        t40.overKind("hex");
+        t40.overKind("hexadecimal");
 
         Token t41 =
                 new Token(
                         Kind.DIGIT_SIX,
                         new Lexeme((byte) 0x36),
                         new Span(new Position(1, 41, 41), new Position(1, 42, 42)));
-        t41.overKind("hex");
+        t41.overKind("hexadecimal");
 
         Token t42 =
                 new Token(
@@ -760,28 +760,28 @@ class ParserSegmentTest {
                         Kind.DIGIT_ZERO,
                         new Lexeme((byte) 0x30),
                         new Span(new Position(1, 8, 8), new Position(1, 9, 9)));
-        t8.overKind("hex");
+        t8.overKind("hexadecimal");
 
         Token t9 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_X,
                         new Lexeme((byte) 0x78),
                         new Span(new Position(1, 9, 9), new Position(1, 10, 10)));
-        t9.overKind("hex");
+        t9.overKind("hexadecimal");
 
         Token t10 =
                 new Token(
                         Kind.DIGIT_SIX,
                         new Lexeme((byte) 0x36),
                         new Span(new Position(1, 10, 10), new Position(1, 11, 11)));
-        t10.overKind("hex");
+        t10.overKind("hexadecimal");
 
         Token t11 =
                 new Token(
                         Kind.DIGIT_ONE,
                         new Lexeme((byte) 0x31),
                         new Span(new Position(1, 11, 11), new Position(1, 12, 12)));
-        t11.overKind("hex");
+        t11.overKind("hexadecimal");
 
         Token t12 =
                 new Token(
@@ -844,28 +844,28 @@ class ParserSegmentTest {
                         Kind.DIGIT_ZERO,
                         new Lexeme((byte) 0x30),
                         new Span(new Position(1, 20, 20), new Position(1, 21, 21)));
-        t20.overKind("hex");
+        t20.overKind("hexadecimal");
 
         Token t21 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_X,
                         new Lexeme((byte) 0x78),
                         new Span(new Position(1, 21, 21), new Position(1, 22, 22)));
-        t21.overKind("hex");
+        t21.overKind("hexadecimal");
 
         Token t22 =
                 new Token(
                         Kind.DIGIT_SIX,
                         new Lexeme((byte) 0x36),
                         new Span(new Position(1, 22, 22), new Position(1, 23, 23)));
-        t22.overKind("hex");
+        t22.overKind("hexadecimal");
 
         Token t23 =
                 new Token(
                         Kind.DIGIT_THREE,
                         new Lexeme((byte) 0x33),
                         new Span(new Position(1, 23, 23), new Position(1, 24, 24)));
-        t23.overKind("hex");
+        t23.overKind("hexadecimal");
 
         Token t24 =
                 new Token(
@@ -998,28 +998,28 @@ class ParserSegmentTest {
                         Kind.DIGIT_ZERO,
                         new Lexeme((byte) 0x30),
                         new Span(new Position(1, 42, 42), new Position(1, 43, 43)));
-        t42.overKind("hex");
+        t42.overKind("hexadecimal");
 
         Token t43 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_X,
                         new Lexeme((byte) 0x78),
                         new Span(new Position(1, 43, 43), new Position(1, 44, 44)));
-        t43.overKind("hex");
+        t43.overKind("hexadecimal");
 
         Token t44 =
                 new Token(
                         Kind.DIGIT_SIX,
                         new Lexeme((byte) 0x36),
                         new Span(new Position(1, 44, 44), new Position(1, 45, 45)));
-        t44.overKind("hex");
+        t44.overKind("hexadecimal");
 
         Token t45 =
                 new Token(
                         Kind.DIGIT_THREE,
                         new Lexeme((byte) 0x33),
                         new Span(new Position(1, 45, 45), new Position(1, 46, 46)));
-        t45.overKind("hex");
+        t45.overKind("hexadecimal");
 
         Token t46 =
                 new Token(
@@ -1033,28 +1033,28 @@ class ParserSegmentTest {
                         Kind.DIGIT_ZERO,
                         new Lexeme((byte) 0x30),
                         new Span(new Position(1, 47, 47), new Position(1, 48, 48)));
-        t47.overKind("hex");
+        t47.overKind("hexadecimal");
 
         Token t48 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_X,
                         new Lexeme((byte) 0x78),
                         new Span(new Position(1, 48, 48), new Position(1, 49, 49)));
-        t48.overKind("hex");
+        t48.overKind("hexadecimal");
 
         Token t49 =
                 new Token(
                         Kind.DIGIT_SEVEN,
                         new Lexeme((byte) 0x37),
                         new Span(new Position(1, 49, 49), new Position(1, 50, 50)));
-        t49.overKind("hex");
+        t49.overKind("hexadecimal");
 
         Token t50 =
                 new Token(
                         Kind.DIGIT_THREE,
                         new Lexeme((byte) 0x33),
                         new Span(new Position(1, 50, 50), new Position(1, 51, 51)));
-        t50.overKind("hex");
+        t50.overKind("hexadecimal");
 
         Token t51 =
                 new Token(

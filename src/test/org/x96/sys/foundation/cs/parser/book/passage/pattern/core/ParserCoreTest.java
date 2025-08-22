@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.*;
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.unit.quantifier.OneOrMore;
 import org.x96.sys.foundation.cs.ast.book.passage.pattern.core.unit.quantifier.ZeroOrOne;
-import org.x96.sys.foundation.cs.parser.Tape;
 import org.x96.sys.foundation.cs.lexer.token.Kind;
 import org.x96.sys.foundation.cs.lexer.token.Token;
 import org.x96.sys.foundation.cs.lexer.token.architecture.Lexeme;
 import org.x96.sys.foundation.cs.lexer.token.architecture.span.Position;
 import org.x96.sys.foundation.cs.lexer.token.architecture.span.Span;
+import org.x96.sys.foundation.cs.parser.Tape;
 
 class ParserCoreTest {
     @Test
@@ -21,28 +21,28 @@ class ParserCoreTest {
                         Kind.DIGIT_ZERO,
                         new Lexeme((byte) 0x30),
                         new Span(new Position(0, 0, 0), new Position(1, 1, 1)));
-        t0.overKind("hex");
+        t0.overKind("hexadecimal");
 
         Token t1 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_X,
                         new Lexeme((byte) 0x78),
                         new Span(new Position(1, 1, 1), new Position(1, 2, 2)));
-        t1.overKind("hex");
+        t1.overKind("hexadecimal");
 
         Token t2 =
                 new Token(
                         Kind.LATIN_SMALL_LETTER_C,
                         new Lexeme((byte) 0x63),
                         new Span(new Position(1, 2, 2), new Position(1, 3, 3)));
-        t2.overKind("hex");
+        t2.overKind("hexadecimal");
 
         Token t3 =
                 new Token(
                         Kind.DIGIT_ONE,
                         new Lexeme((byte) 0x31),
                         new Span(new Position(1, 3, 3), new Position(1, 4, 4)));
-        t3.overKind("hex");
+        t3.overKind("hexadecimal");
 
         Core core = new ParserCore(new Tape(new Token[] {t0, t1, t2, t3})).parse();
         assertInstanceOf(Hexadecimal.class, core);

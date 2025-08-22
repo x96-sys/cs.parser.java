@@ -17,11 +17,11 @@ public class ParserBook extends Parser implements Parsing<Book> {
 
     @Override
     public Book parse() {
-        consume("open_book");
+        consume("stx");
         skipES();
         List<Passage> passages = new ArrayList<>();
         followPassage(passages);
-        consume("close_book");
+        consume("etx");
         return new Book(passages.toArray(Passage[]::new));
     }
 
