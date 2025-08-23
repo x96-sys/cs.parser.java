@@ -125,7 +125,7 @@ class ParserChoicesTest {
 
         assertInstanceOf(Unit.class, c.cores()[1]);
         Unit unit = (Unit) c.cores()[1];
-        assertFalse(unit.inhibitor().isPresent());
+        assertFalse(unit.bang().isPresent());
         assertEquals("sc", new String(unit.glyph().raw()));
     }
 }

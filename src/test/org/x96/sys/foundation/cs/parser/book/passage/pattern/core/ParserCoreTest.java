@@ -108,7 +108,7 @@ class ParserCoreTest {
                         Kind.EXCLAMATION_MARK,
                         new Lexeme((byte) 0x21),
                         new Span(new Position(0, 0, 0), new Position(1, 1, 1)));
-        t0.overKind("inhibitor");
+        t0.overKind("bang");
 
         Token t1 =
                 new Token(
@@ -148,7 +148,7 @@ class ParserCoreTest {
         Core core = new ParserCore(new Tape(new Token[] {t0, t1, t2, t3, t4, t5})).parse();
         assertInstanceOf(Unit.class, core);
         Unit unit = (Unit) core;
-        assertTrue(unit.inhibitor().isPresent());
+        assertTrue(unit.bang().isPresent());
         assertEquals("book", new String(unit.glyph().raw()));
         assertTrue(unit.quantifier().isPresent());
         assertInstanceOf(ZeroOrOne.class, unit.quantifier().get());
@@ -194,7 +194,7 @@ class ParserCoreTest {
         Core core = new ParserCore(new Tape(new Token[] {t0, t1, t2, t3, t4})).parse();
         assertInstanceOf(Unit.class, core);
         Unit unit = (Unit) core;
-        assertFalse(unit.inhibitor().isPresent());
+        assertFalse(unit.bang().isPresent());
         assertEquals("sofi", new String(unit.glyph().raw()));
         assertTrue(unit.quantifier().isPresent());
         assertInstanceOf(OneOrMore.class, unit.quantifier().get());

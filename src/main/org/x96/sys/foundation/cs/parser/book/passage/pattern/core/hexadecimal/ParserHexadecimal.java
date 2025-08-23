@@ -13,21 +13,15 @@ public class ParserHexadecimal extends Parser implements Parsing<Hexadecimal> {
 
     @Override
     public Hexadecimal parse() {
-        // consome '0' e 'x' do prefixo
-        consume("hexadecimal"); // '0'
-        consume("hexadecimal"); // 'X'
-
         StringBuilder hexString = new StringBuilder();
+        consume("hexadecimal"); // '0'
+        consume("hexadecimal"); // ('X' | 'x')
 
         while (hasNext("hexadecimal")) {
             byte b = consume("hexadecimal").lexeme().b();
-            char c = (char) b; // converte o byte ASCII para char
-            hexString.append(c);
+            hexString.append((char) b);
         }
 
-        // converte a string hexadecimal para int
-        int value = Integer.parseInt(hexString.toString(), 16);
-
-        return new Hexadecimal(value);
+        return new Hexadecimal(Integer.parseInt(hexString.toString(), 16));
     }
 }

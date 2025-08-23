@@ -20,7 +20,7 @@ public class ParserCore extends Parser implements Parsing<Core> {
         if (hasNext("hexadecimal")) return new ParserHexadecimal(tape).parse();
         if (hasNext("q")) return new ParserWord(tape).parse();
         if (hasNext("glyph")) return new ParserUnit(tape).parse();
-        if (hasNext("inhibitor")) return new ParserUnit(tape).parse();
+        if (hasNext("bang")) return new ParserUnit(tape).parse();
         if (hasNext("LEFT_PARENTHESIS")) return new ParserChoices(tape).parse();
         if (hasNext("LEFT_SQUARE_BRACKET")) return new ParserSegment(tape).parse();
 

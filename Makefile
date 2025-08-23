@@ -16,13 +16,17 @@ CS_KIND_VERSION = 0.1.3
 CS_KIND_JAR     = $(LIB_DIR)/org.x96.sys.foundation.cs.lexer.token.kind.jar
 CS_KIND_URL     = https://github.com/x96-sys/cs.lexer.token.kind.java/releases/download/0.1.3/org.x96.sys.foundation.cs.lexer.token.kind.jar
 
-CS_AST_VERSION = 0.1.2
+CS_AST_VERSION = 0.2.2
 CS_AST_JAR     = $(LIB_DIR)/org.x96.sys.foundation.cs.ast.jar
 CS_AST_URL     = https://github.com/x96-sys/cs.ast.java/releases/download/v$(CS_AST_VERSION)/org.x96.sys.foundation.cs.ast.jar
 
 CS_TOKEN_VERSION = 0.1.3
 CS_TOKEN_JAR     = $(LIB_DIR)/org.x96.sys.foundation.cs.lexer.token.jar
 CS_TOKEN_URL     = https://github.com/x96-sys/cs.lexer.token.java/releases/download/v0.1.3/org.x96.sys.foundation.cs.lexer.token.jar
+
+CS_LEXER_ENTRY_VERSION = 0.1.2
+CS_LEXER_ENTRY_JAR     = $(LIB_DIR)/org.x96.sys.foundation.cs.lexer.entry.jar
+CS_LEXER_ENTRY_URL     = https://github.com/x96-sys/cs.lexer.visitor.entry.java/releases/download/v$(CS_LEXER_ENTRY_VERSION)/org.x96.sys.foundation.cs.lexer.entry.jar
 
 JUNIT_VERSION = 1.13.4
 JUNIT_JAR     = $(TOOL_DIR)/junit-platform-console-standalone.jar
@@ -93,11 +97,12 @@ $1/$2: $1
 	fi
 endef
 
-libs: lib/ast lib/token lib/kind
+libs: lib/ast lib/token lib/kind lib/lexer_entry
 
 $(eval $(call deps,lib,ast,CS_AST))
 $(eval $(call deps,lib,token,CS_TOKEN))
 $(eval $(call deps,lib,kind,CS_KIND))
+$(eval $(call deps,lib,lexer_entry,CS_LEXER_ENTRY))
 
 kit: tools/junit tools/jacoco_cli tools/jacoco_agent tools/gjf
 
@@ -108,6 +113,11 @@ $(eval $(call deps,tools,gjf,GJF))
 
 $(TOOL_DIR) $(LIB_DIR):
 	@mkdir -p $@
+
+distro:
+	@echo "📦 Criando JAR distribuível..."
+	@jar cf $(DISTRO_JAR) -C $(MAIN_BUILD) .
+	@echo "✅ JAR criado: $(DISTRO_JAR)"
 
 clean:
 	@rm -rf $(BUILD_DIR) $(TOOL_DIR) $(LIB_DIR)

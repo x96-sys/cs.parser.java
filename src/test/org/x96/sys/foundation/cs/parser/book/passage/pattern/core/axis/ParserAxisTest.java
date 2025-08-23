@@ -24,7 +24,7 @@ class ParserAxisTest {
                         Kind.EXCLAMATION_MARK,
                         new Lexeme((byte) 0x21),
                         new Span(new Position(0, 0, 0), new Position(1, 1, 1)));
-        t0.overKind("inhibitor");
+        t0.overKind("bang");
 
         Token t1 =
                 new Token(
@@ -64,7 +64,7 @@ class ParserAxisTest {
         Axis axis = new ParserAxis(new Tape(new Token[] {t0, t1, t2, t3, t4, t5})).parse();
         assertInstanceOf(Unit.class, axis);
         Unit unit = (Unit) axis;
-        assertTrue(unit.inhibitor().isPresent());
+        assertTrue(unit.bang().isPresent());
         assertEquals("book", new String(unit.glyph().raw()));
         assertTrue(unit.quantifier().isPresent());
         assertInstanceOf(ZeroOrOne.class, unit.quantifier().get());
@@ -77,7 +77,7 @@ class ParserAxisTest {
                         Kind.EXCLAMATION_MARK,
                         new Lexeme((byte) 0x21),
                         new Span(new Position(0, 0, 0), new Position(1, 1, 1)));
-        t0.overKind("inhibitor");
+        t0.overKind("bang");
 
         Token t1 =
                 new Token(
@@ -117,7 +117,7 @@ class ParserAxisTest {
         Axis axis = new ParserAxis(new Tape(new Token[] {t0, t1, t2, t3, t4, t5})).parse();
         assertInstanceOf(Unit.class, axis);
         Unit unit = (Unit) axis;
-        assertTrue(unit.inhibitor().isPresent());
+        assertTrue(unit.bang().isPresent());
         assertEquals("book", new String(unit.glyph().raw()));
         assertTrue(unit.quantifier().isPresent());
         assertInstanceOf(ZeroOrOne.class, unit.quantifier().get());

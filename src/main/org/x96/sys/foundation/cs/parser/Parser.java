@@ -27,7 +27,7 @@ public abstract class Parser {
     }
 
     public void skipES() {
-        for (String s : new String[] {"empty_space", "SPACE", "doc", "LF"}) {
+        for (String s : new String[] {"empty_space", "SPACE", "doc", "LF", "d"}) {
             if (hasNext(s)) {
                 consume(s);
                 skipES();
@@ -40,7 +40,7 @@ public abstract class Parser {
         if (hasNext("hexadecimal")) return true;
         if (hasNext("q")) return true;
         if (hasNext("glyph")) return true;
-        if (hasNext("inhibitor")) return true;
+        if (hasNext("bang")) return true;
         if (hasNext("LEFT_PARENTHESIS")) return true;
         return hasNext("LEFT_SQUARE_BRACKET");
     }

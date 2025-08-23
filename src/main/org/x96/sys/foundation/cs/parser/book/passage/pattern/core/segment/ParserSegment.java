@@ -22,7 +22,7 @@ public class ParserSegment extends Parser implements Parsing<Segment> {
         if (hasNext("glyph")) return true;
         if (hasNext("LEFT_SQUARE_BRACKET")) return true;
         if (hasNext("LEFT_PARENTHESIS")) return true;
-        return hasNext("inhibitor");
+        return hasNext("bang");
     }
 
     @Override

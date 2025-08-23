@@ -200,4 +200,94 @@ class ParserBookTest {
         assertEquals("s", new String(passage.glyph().raw()));
         assertInstanceOf(Casing.class, passage.pattern());
     }
+
+    @Test
+    void happy22() {
+        Token t0 =
+                new Token(
+                        Kind.STX,
+                        new Lexeme((byte) 0x2),
+                        new Span(new Position(0, 0, 0), new Position(1, 1, 1)));
+        t0.overKind("open_book");
+
+        Token t1 =
+                new Token(
+                        Kind.LATIN_SMALL_LETTER_A,
+                        new Lexeme((byte) 0x61),
+                        new Span(new Position(1, 1, 1), new Position(1, 2, 2)));
+        t1.overKind("glyph");
+
+        Token t2 =
+                new Token(
+                        Kind.SPACE,
+                        new Lexeme((byte) 0x20),
+                        new Span(new Position(1, 2, 2), new Position(1, 3, 3)));
+        t2.overKind("d");
+
+        Token t3 =
+                new Token(
+                        Kind.EQUALS,
+                        new Lexeme((byte) 0x3D),
+                        new Span(new Position(1, 3, 3), new Position(1, 4, 4)));
+        t3.overKind("assignor");
+
+        Token t4 =
+                new Token(
+                        Kind.SPACE,
+                        new Lexeme((byte) 0x20),
+                        new Span(new Position(1, 4, 4), new Position(1, 5, 5)));
+        t4.overKind("d");
+
+        Token t5 =
+                new Token(
+                        Kind.LATIN_SMALL_LETTER_B,
+                        new Lexeme((byte) 0x62),
+                        new Span(new Position(1, 5, 5), new Position(1, 6, 6)));
+        t5.overKind("glyph");
+
+        Token t6 =
+                new Token(
+                        Kind.SEMICOLON,
+                        new Lexeme((byte) 0x3B),
+                        new Span(new Position(1, 6, 6), new Position(1, 7, 7)));
+        t6.overKind("null");
+
+        Token t7 =
+                new Token(
+                        Kind.SPACE,
+                        new Lexeme((byte) 0x20),
+                        new Span(new Position(1, 7, 7), new Position(1, 8, 8)));
+        t7.overKind("d");
+
+        Token t8 =
+                new Token(
+                        Kind.NUMBER_SIGN,
+                        new Lexeme((byte) 0x23),
+                        new Span(new Position(1, 8, 8), new Position(1, 9, 9)));
+        t8.overKind("d");
+
+        Token t9 =
+                new Token(
+                        Kind.SPACE,
+                        new Lexeme((byte) 0x20),
+                        new Span(new Position(1, 9, 9), new Position(1, 10, 10)));
+        t9.overKind("d");
+
+        Token t10 =
+                new Token(
+                        Kind.LATIN_SMALL_LETTER_C,
+                        new Lexeme((byte) 0x63),
+                        new Span(new Position(1, 10, 10), new Position(1, 11, 11)));
+        t10.overKind("d");
+
+        Token t11 =
+                new Token(
+                        Kind.ETX,
+                        new Lexeme((byte) 0x3),
+                        new Span(new Position(1, 11, 11), new Position(1, 12, 12)));
+        t11.overKind("close_book");
+
+        Token[] t = new Token[] {t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11};
+        Book book = new ParserBook(new Tape(t)).parse();
+    }
 }

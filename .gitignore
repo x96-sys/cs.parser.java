@@ -7,3 +7,5 @@ manifest.mf
 .idea
 .zig-cache
 *.iml
+.DS_Store
+*.jar

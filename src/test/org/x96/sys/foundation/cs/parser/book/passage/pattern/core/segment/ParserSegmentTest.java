@@ -198,7 +198,7 @@ class ParserSegmentTest {
 
         assertInstanceOf(Unit.class, s.axes()[1]);
         Unit u = (Unit) s.axes()[1];
-        assertFalse(u.inhibitor().isPresent());
+        assertFalse(u.bang().isPresent());
         assertEquals("sofi", new String(u.glyph().raw()));
 
         assertInstanceOf(RangeHex.class, s.axes()[2]);
@@ -360,7 +360,7 @@ class ParserSegmentTest {
         Unit unit = (Unit) choices.cores()[0];
         Word word = (Word) choices.cores()[1];
 
-        assertFalse(unit.inhibitor().isPresent());
+        assertFalse(unit.bang().isPresent());
         assertEquals("ceci", new String(unit.glyph().raw()));
         assertFalse(unit.quantifier().isPresent());
 

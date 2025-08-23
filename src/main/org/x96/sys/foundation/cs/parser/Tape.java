@@ -4,8 +4,8 @@ import org.x96.sys.foundation.cs.lexer.token.Token;
 
 public class Tape {
 
-    public final Token[] tokens;
-    public int pointer;
+    private final Token[] tokens;
+    private int pointer;
 
     public Tape(Token[] tokens) {
         this.tokens = tokens;
@@ -13,44 +13,34 @@ public class Tape {
     }
 
     public Token current() {
-        return this.tokens[this.pointer];
-    }
-
-    public boolean hasNext(String overKind) {
-        if (this.pointer >= this.tokens.length) return false;
-        return overKindIs(overKind);
-    }
-
-    public boolean overKindIs(String overKind) {
-        if (current().overKind != null) {
-            return y(overKind) || x(overKind);
-        } else {
-            return x(overKind);
+        if (pointer >= tokens.length) {
+            throw new IllegalStateException("Pointer está fora dos limites: " + pointer);
         }
+        return tokens[pointer];
     }
 
-    public Token consume(String overKind) {
-        if (!overKindIs(overKind)) {
-            String explain =
+    public boolean hasNext(String expectedKind) {
+        return pointer < tokens.length && matches(expectedKind);
+    }
+
+    public boolean matches(String expectedKind) {
+        Token token = current();
+        boolean b = token.kind().toString().equalsIgnoreCase(expectedKind);
+        if (token.overKind != null) {
+            return token.overKind.equalsIgnoreCase(expectedKind) || b;
+        }
+        return b;
+    }
+
+    public Token consume(String expectedKind) {
+        if (!matches(expectedKind)) {
+            String found =
+                    current().overKind != null ? current().overKind : current().kind().toString();
+
+            throw new IllegalStateException(
                     String.format(
-                            "encontrado [%s] ao consumir [%s]",
-                            current().overKind != null
-                                    ? current().overKind
-                                    : current().kind().toString(),
-                            overKind);
-            throw new RuntimeException(explain);
-        } else {
-            Token c = current();
-            this.pointer += 1;
-            return c;
+                            "Token inválido: encontrado [%s], esperado [%s]", found, expectedKind));
         }
-    }
-
-    private boolean x(String overKind) {
-        return current().kind().toString().toLowerCase().equals(overKind.toLowerCase());
-    }
-
-    private boolean y(String overKind) {
-        return current().overKind.toLowerCase().equals(overKind.toLowerCase());
+        return tokens[pointer++];
     }
 }

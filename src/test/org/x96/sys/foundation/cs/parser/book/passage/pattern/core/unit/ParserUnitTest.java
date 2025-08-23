@@ -20,7 +20,7 @@ class ParserUnitTest {
                         Kind.EXCLAMATION_MARK,
                         new Lexeme((byte) 0x21),
                         new Span(new Position(0, 0, 0), new Position(1, 1, 1)));
-        t0.overKind("inhibitor");
+        t0.overKind("bang");
 
         Token t1 =
                 new Token(
@@ -37,8 +37,8 @@ class ParserUnitTest {
         t2.overKind("quantifier");
         Unit unit = new ParserUnit(new Tape(new Token[] {t0, t1, t2})).parse();
         assertEquals("c", new String(unit.glyph().raw()));
-        assertTrue(unit.inhibitor().isPresent());
-        assertEquals(0x21, unit.inhibitor().get().raw());
+        assertTrue(unit.bang().isPresent());
+        assertEquals(0x21, unit.bang().get().raw());
         assertTrue(unit.quantifier().isPresent());
     }
 }
