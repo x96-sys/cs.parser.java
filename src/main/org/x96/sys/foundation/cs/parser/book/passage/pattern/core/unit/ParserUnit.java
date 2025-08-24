@@ -25,6 +25,9 @@ public class ParserUnit extends Parser implements Parsing<Unit> {
         if (hasNext("bang")) {
             bang = Optional.of(new ParserBang(this.tape).parse());
         }
+        if (hasNext("inhibitor")) {
+            bang = Optional.of(new ParserBang(this.tape).parse());
+        }
         Glyph glyph = new ParserGlyph(this.tape).parse();
         Optional<Quantifier> quantifier = Optional.empty();
         if (hasNext("quantifier")) {

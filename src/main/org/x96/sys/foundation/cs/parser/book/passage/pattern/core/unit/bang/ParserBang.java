@@ -13,6 +13,10 @@ public class ParserBang extends Parser implements Parsing<Bang> {
 
     @Override
     public Bang parse() {
+        if (hasNext("inhibitor")) {
+                    return new Bang(consume("inhibitor").lexeme().b());
+
+        }
         return new Bang(consume("bang").lexeme().b());
     }
 }
