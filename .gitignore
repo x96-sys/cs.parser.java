@@ -1,9 +1,6 @@
-build
+out
 lib
 tools
-nbproject
-build.xml
-manifest.mf
 .idea
 .zig-cache
 *.iml
